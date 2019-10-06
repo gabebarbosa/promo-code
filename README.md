@@ -18,7 +18,7 @@ CREATE DATABASE promo
 ```
 
 ## Endpoints
--- GET `api/promoCodes` 
+ GET `api/promoCodes` 
 - Return all promo codes.
 
  GET `api/promoCodes/actives`
