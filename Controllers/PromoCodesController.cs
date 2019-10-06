@@ -37,13 +37,13 @@ namespace promo_code.Controllers
         // POST api/promoCodes
         // Generation of new promo codes for events.
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] string promoCode)
         {
         }
 
         // PUT api/promoCodes/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(int id, [FromBody] string promoCode)
         {
         }
 
