@@ -1,12 +1,5 @@
 # promo-code
 
-## Commands
-`dotnet restore`
-
-`dotnet build`
-
-`dotnet run`
-
 ## Create the postgres data base
 
 ```sql
@@ -16,6 +9,15 @@ CREATE DATABASE promo
     ENCODING = 'UTF8'
     CONNECTION LIMIT = -1;
 ```
+
+## Commands
+`dotnet restore`
+
+`dotnet build`
+
+`dotnet ef database update`
+
+`dotnet run`
 
 ## Endpoints
  GET `api/promoCodes` 
