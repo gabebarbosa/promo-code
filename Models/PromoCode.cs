@@ -10,5 +10,6 @@ namespace promoCode.Models
         public int Amount { get; set; }
         public bool IsActive { get; set; }
         public string Radius { get; set; }
+        public string Coordinate { get; set; }
     }
 }
