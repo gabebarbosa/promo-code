@@ -61,8 +61,37 @@ namespace promo_code.Controllers
 
         // PUT api/promoCodes/5
         [HttpPut("{id}")]
-        public void Put(long id, [FromBody] PromoCode promoCode)
+        public ActionResult<PromoCode> Put(long id, [FromBody] PromoCode promoCode)
         {
+            var pc = _context.PromoCodes.Find(id);
+            if (pc == null) 
+            { 
+                return NotFound(); 
+            } 
+            
+            pc.Description = 
+                (pc.Description == promoCode.Description || promoCode.Description == null) ? 
+                pc.Description : promoCode.Description; 
+            
+            pc.ExpireDate = 
+                (pc.ExpireDate == promoCode.ExpireDate || promoCode.ExpireDate == null) ? 
+                pc.ExpireDate : promoCode.ExpireDate;
+
+            pc.Amount = 
+                (pc.Amount == promoCode.Amount || promoCode.Amount == null) ? 
+                pc.Amount : promoCode.Amount;
+            
+            pc.RadiusInKilometers = 
+                (pc.RadiusInKilometers == promoCode.RadiusInKilometers || promoCode.RadiusInKilometers == null) ? 
+                pc.RadiusInKilometers : promoCode.RadiusInKilometers;
+            
+            pc.Coordinate = 
+                (pc.Coordinate == promoCode.Coordinate || promoCode.Coordinate == null) ? 
+                pc.Coordinate : promoCode.Coordinate;
+
+            _context.SaveChanges();
+            
+            return pc; 
         }
 
         // DELETE api/promoCodes/5
