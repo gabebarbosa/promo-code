@@ -49,7 +49,8 @@ namespace promo_code.Services
             pc.ExpireDate = ValueToChange(pc.ExpireDate, promoCode.ExpireDate);
             pc.Amount = ValueToChange(pc.Amount, promoCode.Amount);
             pc.RadiusInKilometers = ValueToChange(pc.RadiusInKilometers, promoCode.RadiusInKilometers);
-            pc.Coordinate = ValueToChange(pc.Coordinate, promoCode.Coordinate);
+            pc.CoordinateLat = ValueToChange(pc.CoordinateLat, promoCode.CoordinateLat);
+            pc.CoordinateLon = ValueToChange(pc.CoordinateLon, promoCode.CoordinateLon);
 
             _context.SaveChanges();
             

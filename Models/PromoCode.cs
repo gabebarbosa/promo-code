@@ -10,6 +10,8 @@ namespace promoCode.Models
         public int? Amount { get; set; }
         public bool IsActive { get; set; }
         public decimal? RadiusInKilometers { get; set; }
-        public string Coordinate { get; set; }
+        public string CoordinateLat { get; set; }
+
+        public string CoordinateLon { get; set; }
     }
 }
