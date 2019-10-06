@@ -11,13 +11,13 @@ CREATE DATABASE promo
 ```
 
 ## Commands
-`dotnet restore`
+`dotnet restore` This will restore the project dependencies.
 
-`dotnet build`
+`dotnet build` This will compile the code.
 
-`dotnet ef database update`
+`dotnet ef database update` This will run the migrations creating the tables and columns at the database.
 
-`dotnet run`
+`dotnet run` This will run the project.
 
 ## Endpoints
  GET `api/promoCodes` 
