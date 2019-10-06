@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
@@ -73,7 +74,23 @@ namespace promo_code.Services
 
         public ActionResult<bool> Validity(long id)
         {
-            //I'll use the Haversine Formula
+            var pc = _context.PromoCodes.Find(id);
+            if (pc == null) 
+            { 
+                return null; 
+            }
+
+            if (pc.ExpireDate < DateTime.Now) {
+                return false;
+            }
+
+            if (pc.Amount.Equals(0)) {
+                return false;
+            }
+
+            //I'll use the Haversine Formula here
+
+
             return false;
         }
 

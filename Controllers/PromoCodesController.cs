@@ -104,7 +104,14 @@ namespace promo_code.Controllers
                 return StatusCode(400, "Enter the destination coordinate");
             }
 
-            return _service.Validity(id);
+            var isValid = _service.Validity(id);
+
+            if (isValid == null) {
+                return NotFound();
+            }
+
+            return isValid;
+
         }
     }
 }
