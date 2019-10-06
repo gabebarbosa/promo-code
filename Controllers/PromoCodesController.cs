@@ -39,7 +39,7 @@ namespace promo_code.Controllers
 
         // GET api/promoCodes/5
         [HttpGet("{id}")]
-        public ActionResult<PromoCode> Get(int id)
+        public ActionResult<PromoCode> Get(long id)
         {
             var promocode = _context.PromoCodes.Find(id);
             if (promocode == null) 
@@ -61,22 +61,32 @@ namespace promo_code.Controllers
 
         // PUT api/promoCodes/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] PromoCode promoCode)
+        public void Put(long id, [FromBody] PromoCode promoCode)
         {
         }
 
         // DELETE api/promoCodes/5
         // Deactivate a promo code.
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public ActionResult<PromoCode> Delete(long id)
         {
+            var pc = _context.PromoCodes.Find(id);
+            if (pc == null) 
+            { 
+                return NotFound(); 
+            } 
+
+            pc.IsActive = false;
+            _context.SaveChanges();
+            
+            return pc; 
         }
 
         // GET api/promoCodes/5/validity
         // Validity a promo code.
         [HttpGet]
         [Route("{id}/validity")]
-        public ActionResult<string> Validity(int id)
+        public ActionResult<string> Validity(long id)
         {
             return "validPromoCode" + id;
         }
