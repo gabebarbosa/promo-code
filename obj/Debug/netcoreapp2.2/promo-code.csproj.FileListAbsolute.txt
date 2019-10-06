@@ -1,0 +1,14 @@
+C:\dev\dotnet\promo-code\bin\Debug\netcoreapp2.2\promo-code.deps.json
+C:\dev\dotnet\promo-code\bin\Debug\netcoreapp2.2\promo-code.runtimeconfig.json
+C:\dev\dotnet\promo-code\bin\Debug\netcoreapp2.2\promo-code.runtimeconfig.dev.json
+C:\dev\dotnet\promo-code\bin\Debug\netcoreapp2.2\promo-code.dll
+C:\dev\dotnet\promo-code\bin\Debug\netcoreapp2.2\promo-code.pdb
+C:\dev\dotnet\promo-code\obj\Debug\netcoreapp2.2\promo-code.csprojAssemblyReference.cache
+C:\dev\dotnet\promo-code\obj\Debug\netcoreapp2.2\promo-code.csproj.CoreCompileInputs.cache
+C:\dev\dotnet\promo-code\obj\Debug\netcoreapp2.2\promo-code.RazorAssemblyInfo.cache
+C:\dev\dotnet\promo-code\obj\Debug\netcoreapp2.2\promo-code.RazorAssemblyInfo.cs
+C:\dev\dotnet\promo-code\obj\Debug\netcoreapp2.2\promo-code.AssemblyInfoInputs.cache
+C:\dev\dotnet\promo-code\obj\Debug\netcoreapp2.2\promo-code.AssemblyInfo.cs
+C:\dev\dotnet\promo-code\obj\Debug\netcoreapp2.2\promo-code.RazorTargetAssemblyInfo.cache
+C:\dev\dotnet\promo-code\obj\Debug\netcoreapp2.2\promo-code.dll
+C:\dev\dotnet\promo-code\obj\Debug\netcoreapp2.2\promo-code.pdb
