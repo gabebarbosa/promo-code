@@ -40,3 +40,18 @@ CREATE DATABASE promo
 
  GET `api/promoCodes/5/validity`
 - Validity a promo code.
+
+
+## Examples
+
+- Creating a promo code
+POST `https://localhost:5001/api/promocodes`
+```json
+{
+    "Description": "testing promocode",
+    "ExpireDate": "2019-10-10",
+    "Amount": 1000,
+    "IsActive": true,
+    "RadiusInKilometers": 3.5
+}
+```

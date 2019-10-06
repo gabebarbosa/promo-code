@@ -41,7 +41,13 @@ namespace promo_code.Controllers
         [HttpGet("{id}")]
         public ActionResult<PromoCode> Get(int id)
         {
-            return _context.PromoCodes.Find(id);
+            var promocode = _context.PromoCodes.Find(id);
+            if (promocode == null) 
+            { 
+                return NotFound(); 
+            } 
+            
+            return promocode; 
         }
 
         // POST api/promoCodes
@@ -49,6 +55,8 @@ namespace promo_code.Controllers
         [HttpPost]
         public void Post([FromBody] PromoCode promoCode)
         {
+            _context.PromoCodes.Add(promoCode);
+            _context.SaveChanges();
         }
 
         // PUT api/promoCodes/5
