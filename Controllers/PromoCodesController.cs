@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using promoCode.Models;
 
 namespace promo_code.Controllers
 {
@@ -13,37 +14,37 @@ namespace promo_code.Controllers
         // GET api/promoCodes
         // Return all promo codes.
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public ActionResult<IEnumerable<PromoCode>> Get()
         {
-            return new string[] { "promoCode1", "promoCode2" };
+            return new PromoCode[] { new PromoCode(), new PromoCode(), };
         }
 
         // GET api/promoCodes/actives
         // Return actives promo codes.
         [HttpGet]
         [Route("actives")]
-        public ActionResult<IEnumerable<string>> GetActives()
+        public ActionResult<IEnumerable<PromoCode>> GetActives()
         {
-            return new string[] { "activePromoCode1", "activePromoCode2" };
+            return new PromoCode[] { new PromoCode(), new PromoCode(), };
         }
 
         // GET api/promoCodes/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public ActionResult<PromoCode> Get(int id)
         {
-            return "promoCode";
+            return new PromoCode();
         }
 
         // POST api/promoCodes
         // Generation of new promo codes for events.
         [HttpPost]
-        public void Post([FromBody] string promoCode)
+        public void Post([FromBody] PromoCode promoCode)
         {
         }
 
         // PUT api/promoCodes/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string promoCode)
+        public void Put(int id, [FromBody] PromoCode promoCode)
         {
         }
 
