@@ -1,4 +1,9 @@
 # promo-code
+```
+You can create a promo code at the POST endpoint.
+The radius can be altered at the PUT endpoint.
+The promo code can be deactivated at the DELETE endpoint.
+```
 
 ## Create the postgres data base
 
