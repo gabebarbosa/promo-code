@@ -90,8 +90,15 @@ namespace promo_code.Controllers
         // Validity a promo code.
         [HttpGet]
         [Route("{id}/validity")]
-        public ActionResult<bool> Validity(long id)
+        public ActionResult<bool> Validity(long id, [FromQuery] string origin, [FromQuery] string destination)
         {
+            if (string.IsNullOrEmpty(origin)) {
+                return StatusCode(400, "Enter the origin coordinate");
+            }
+            if (string.IsNullOrEmpty(destination)) {
+                return StatusCode(400, "Enter the destination coordinate");
+            }
+            
             return _service.Validity(id);
         }
     }
