@@ -18,24 +18,23 @@ CREATE DATABASE promo
 ```
 
 ## Endpoints
+-- GET `api/promoCodes` 
 - Return all promo codes.
 
-GET `api/promoCodes` 
+ GET `api/promoCodes/actives`
 - Return actives promo codes.
 
-GET `api/promoCodes/actives`
+ GET `api/promoCodes/5`
 - Return a promo code
 
-GET `api/promoCodes/5`
+ POST `api/promoCodes`
 - Generation of new promo codes for events.
 
-POST `api/promoCodes`
+ PUT `api/promoCodes/5`
 - Change a promo code
 
-PUT `api/promoCodes/5`
+ DELETE `api/promoCodes/5`
 - Deactivate a promo code.
 
-DELETE `api/promoCodes/5`
+ GET `api/promoCodes/5/validity`
 - Validity a promo code.
-
-GET `api/promoCodes/5/validity`
