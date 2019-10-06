@@ -1,11 +1,11 @@
 # promo-code
 
 ## Commands
-`dotnet restore
+`dotnet restore`
 
-`dotnet build
+`dotnet build`
 
-`dotnet run
+`dotnet run`
 
 ## create the postgres data base
 
