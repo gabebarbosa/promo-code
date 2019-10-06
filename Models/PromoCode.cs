@@ -9,5 +9,6 @@ namespace promoCode.Models
         public DateTime ExpireDate { get; set; }
         public int Amount { get; set; }
         public bool IsActive { get; set; }
+        public string Radius { get; set; }
     }
 }
