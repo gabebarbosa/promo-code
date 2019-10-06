@@ -69,25 +69,11 @@ namespace promo_code.Controllers
                 return NotFound(); 
             } 
             
-            pc.Description = 
-                (pc.Description == promoCode.Description || promoCode.Description == null) ? 
-                pc.Description : promoCode.Description; 
-            
-            pc.ExpireDate = 
-                (pc.ExpireDate == promoCode.ExpireDate || promoCode.ExpireDate == null) ? 
-                pc.ExpireDate : promoCode.ExpireDate;
-
-            pc.Amount = 
-                (pc.Amount == promoCode.Amount || promoCode.Amount == null) ? 
-                pc.Amount : promoCode.Amount;
-            
-            pc.RadiusInKilometers = 
-                (pc.RadiusInKilometers == promoCode.RadiusInKilometers || promoCode.RadiusInKilometers == null) ? 
-                pc.RadiusInKilometers : promoCode.RadiusInKilometers;
-            
-            pc.Coordinate = 
-                (pc.Coordinate == promoCode.Coordinate || promoCode.Coordinate == null) ? 
-                pc.Coordinate : promoCode.Coordinate;
+            pc.Description = ValueToChange(pc.Description, promoCode.Description); 
+            pc.ExpireDate = ValueToChange(pc.ExpireDate, promoCode.ExpireDate);
+            pc.Amount = ValueToChange(pc.Amount, promoCode.Amount);
+            pc.RadiusInKilometers = ValueToChange(pc.RadiusInKilometers, promoCode.RadiusInKilometers);
+            pc.Coordinate = ValueToChange(pc.Coordinate, promoCode.Coordinate);
 
             _context.SaveChanges();
             
@@ -118,6 +104,10 @@ namespace promo_code.Controllers
         public ActionResult<string> Validity(long id)
         {
             return "validPromoCode" + id;
+        }
+
+        private dynamic ValueToChange (dynamic originalValue, dynamic value) {
+            return (originalValue == value || value == null) ? originalValue : value;
         }
     }
 }
