@@ -73,6 +73,7 @@ namespace promo_code.Services
 
         public ActionResult<bool> Validity(long id)
         {
+            //I'll use the Haversine Formula
             return false;
         }
 
