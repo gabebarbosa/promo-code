@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using promo_code.Models;
+using promo_code.Services;
 using promoCode.Models;
 
 namespace promo_code.Controllers
@@ -15,17 +16,17 @@ namespace promo_code.Controllers
     {
         public PromoCodesController(TodoContext context)         
         {             
-            _context = context;  
+            _service = new PromoCodeService(context);  
         }
 
-        private readonly TodoContext _context;
+        private readonly PromoCodeService _service;
 
         // GET api/promoCodes
         // Return all promo codes.
         [HttpGet]
         public ActionResult<IEnumerable<PromoCode>> Get()
         {
-            return _context.PromoCodes.ToList();
+            return _service.GetAll();
         }
 
         // GET api/promoCodes/actives
@@ -34,14 +35,14 @@ namespace promo_code.Controllers
         [Route("actives")]
         public ActionResult<IEnumerable<PromoCode>> GetActives()
         {
-            return _context.PromoCodes.Where(pc=> pc.IsActive).ToList();
+            return _service.GetActives();
         }
 
         // GET api/promoCodes/5
         [HttpGet("{id}")]
         public ActionResult<PromoCode> Get(long id)
         {
-            var promocode = _context.PromoCodes.Find(id);
+            var promocode = _service.GetById(id);
             if (promocode == null) 
             { 
                 return NotFound(); 
@@ -55,27 +56,18 @@ namespace promo_code.Controllers
         [HttpPost]
         public void Post([FromBody] PromoCode promoCode)
         {
-            _context.PromoCodes.Add(promoCode);
-            _context.SaveChanges();
+            _service.Create(promoCode);
         }
 
         // PUT api/promoCodes/5
         [HttpPut("{id}")]
         public ActionResult<PromoCode> Put(long id, [FromBody] PromoCode promoCode)
         {
-            var pc = _context.PromoCodes.Find(id);
+            var pc = _service.Change(id, promoCode);
             if (pc == null) 
             { 
                 return NotFound(); 
-            } 
-            
-            pc.Description = ValueToChange(pc.Description, promoCode.Description); 
-            pc.ExpireDate = ValueToChange(pc.ExpireDate, promoCode.ExpireDate);
-            pc.Amount = ValueToChange(pc.Amount, promoCode.Amount);
-            pc.RadiusInKilometers = ValueToChange(pc.RadiusInKilometers, promoCode.RadiusInKilometers);
-            pc.Coordinate = ValueToChange(pc.Coordinate, promoCode.Coordinate);
-
-            _context.SaveChanges();
+            }
             
             return pc; 
         }
@@ -85,14 +77,11 @@ namespace promo_code.Controllers
         [HttpDelete("{id}")]
         public ActionResult<PromoCode> Delete(long id)
         {
-            var pc = _context.PromoCodes.Find(id);
+            var pc = _service.Deactivate(id);
             if (pc == null) 
             { 
                 return NotFound(); 
-            } 
-
-            pc.IsActive = false;
-            _context.SaveChanges();
+            }
             
             return pc; 
         }
@@ -101,13 +90,9 @@ namespace promo_code.Controllers
         // Validity a promo code.
         [HttpGet]
         [Route("{id}/validity")]
-        public ActionResult<string> Validity(long id)
+        public ActionResult<bool> Validity(long id)
         {
-            return "validPromoCode" + id;
-        }
-
-        private dynamic ValueToChange (dynamic originalValue, dynamic value) {
-            return (originalValue == value || value == null) ? originalValue : value;
+            return _service.Validity(id);
         }
     }
 }
