@@ -45,6 +45,7 @@ CREATE DATABASE promo
 ## Examples
 
 - Creating a promo code
+
 POST `https://localhost:5001/api/promocodes`
 ```json
 {
